@@ -32,8 +32,8 @@ public class Anomalie {
     @Column(length = 30)
     private Cloturee cloturee;
 
-    @OneToMany
-    private Collection<Ticket> tickets;
+    @OneToOne
+    private Ticket ticket;
 
 
 }

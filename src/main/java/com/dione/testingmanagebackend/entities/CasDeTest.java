@@ -23,8 +23,8 @@ public class CasDeTest {
     @OneToMany
     private Collection<ScenarioDeTest> scenarioDeTests;
 
-    @OneToMany
-    private Collection<Ticket> tickets;
+    @OneToOne
+    private Ticket ticket;
 
 
 }

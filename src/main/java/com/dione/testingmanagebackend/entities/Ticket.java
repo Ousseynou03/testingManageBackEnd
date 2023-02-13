@@ -22,7 +22,7 @@ public class Ticket {
     private Types type;
     @ManyToOne
     @JsonManagedReference
-    private Release release;
+    private Releas release;
     @ManyToOne
     private Testeur testeur;
     @ManyToOne

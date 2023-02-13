@@ -31,7 +31,7 @@ public class TestingManageBackEndApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//Exposition des id
-		restConfiguration.exposeIdsFor(Release.class);
+		restConfiguration.exposeIdsFor(Releas.class);
 		restConfiguration.exposeIdsFor(Ticket.class);
 		restConfiguration.exposeIdsFor(Anomalie.class);
 		restConfiguration.exposeIdsFor(CasDeTest.class);

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.Date;
-import java.util.UUID;
 import java.util.stream.Stream;
 
 @Service
@@ -37,7 +36,7 @@ public class AppTestingServiceImpl implements IAppTestingService {
     @Override
     public void initRelease() {
         for (int i = 0; i < 3; i++) {
-            Release release = new Release();
+            Releas release = new Releas();
             release.setDateLivraison(new Date());
             release.setDatePrevision(new Date());
             release.setDateReelle(new Date());

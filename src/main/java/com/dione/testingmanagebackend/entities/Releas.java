@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
-public class Release {
+public class Releas {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long refRelease;
     private Date dateLivraison;

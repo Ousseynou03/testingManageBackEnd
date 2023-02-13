@@ -7,7 +7,11 @@ import com.dione.testingmanagebackend.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -30,11 +34,49 @@ public class ApplicationTestingManageController {
         this.testeurRepository = testeurRepository;
     }
 
-    //Méthode de récupértion de tous les releases
-    @GetMapping("/allReleases")
-    public List<Release> findAllRelease(){
-        return releaseRepository.findAll();
+    //Méthode de récupération de la liste de ticket pour chaque release
+/*    @GetMapping("/releaseWithTicket")
+    public List<Releas> getReleases() {
+        List<Releas> result = new ArrayList<>();
+        List<Object[]> releasesWithTickets = releaseRepository.findReleasesWithTickets();
+        Map<Long, Releas> map = new HashMap<>();
+        for (Object[] releaseWithTicket : releasesWithTickets) {
+           Releas release = (Releas) releaseWithTicket[0];
+            *//*     Ticket ticket = (Ticket) releaseWithTicket[1];*//*
+            Releas currentRelease = map.get(release.getRefRelease());
+            if (currentRelease == null) {
+                currentRelease = release;
+                currentRelease.setTickets(new ArrayList<>());
+                map.put(currentRelease.getRefRelease(), currentRelease);
+                result.add(currentRelease);
+            }
+*//*            if (ticket != null) {
+                currentRelease.getTickets().add(ticket);
+            }*//*
+        }
+        return result;
+    }*/
+
+
+    @GetMapping("/releases/tickets")
+    public List<Object[]> getReleasesWithTickets(){
+       return releaseRepository.findReleasesWithTickets();
     }
+
+    //Méthodes de récupération du nombre total de ticket pour chaque release
+    @GetMapping("/releases/totalTickets")
+    public List<Object[]> getReleasesWithTotalTickets() {
+        return releaseRepository.findReleasesWithTotalTickets();
+    }
+
+
+
+
+    //Méthode de récupértion de tous les releases
+/*    @GetMapping("/allReleases")
+    public List<Releas> findAllRelease(){
+        return releaseRepository.findAll();
+    }*/
 
     //Méthode de récupération de tous les anomalies
     @GetMapping("/allAnomalies")
@@ -71,7 +113,7 @@ public class ApplicationTestingManageController {
 
     //Méthode d'ajoute d'une release
     @PostMapping("/addRelease")
-    public Release ajoutRelease(@RequestBody Release release){
+    public Releas ajoutRelease(@RequestBody Releas release){
         return releaseRepository.save(release);
     }
 
@@ -108,7 +150,7 @@ public class ApplicationTestingManageController {
 
     //Méthode de récupération d'un release sachant sont ID
     @GetMapping("/release/{id}")
-    public Release findReleaseById(@PathVariable Long id) {
+    public Releas findReleaseById(@PathVariable Long id) {
         return releaseRepository.findById(id).
                 orElseThrow(() -> new RuntimeException("Release introuvable "));
     }
@@ -145,7 +187,7 @@ public class ApplicationTestingManageController {
 
     //Méthode de modification d'un release
     @PutMapping("/updateRelease/{id}")
-    public Release updateRelease(@RequestBody Release release,@PathVariable Long id){
+    public Releas updateRelease(@RequestBody Releas release, @PathVariable Long id){
         release.setRefRelease(id);
         return releaseRepository.save(release);
     }

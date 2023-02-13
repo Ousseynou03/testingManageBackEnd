@@ -20,8 +20,8 @@ public class CasDeTest {
     @Column(length = 15)
     private Resultat resultat;
 
-    @OneToMany
-    private Collection<ScenarioDeTest> scenarioDeTests;
+//    @OneToMany
+//    private Collection<ScenarioDeTest> scenarioDeTests;
 
     @OneToOne
     private Ticket ticket;

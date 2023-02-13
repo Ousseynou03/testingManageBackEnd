@@ -22,13 +22,12 @@ public class Ticket {
     private Types type;
     @ManyToOne
     @JsonManagedReference
-    private Release release;
+    private Releas release;
     @ManyToOne
+    @JsonManagedReference
     private Testeur testeur;
-    @ManyToOne
-    private CasDeTest casDeTest;
-    @ManyToOne
-    private Anomalie anomalie;
-
-
+//    @ManyToOne
+//    private CasDeTest casDeTest;
+//    @ManyToOne
+//    private Anomalie anomalie;
 }

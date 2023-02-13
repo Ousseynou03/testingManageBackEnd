@@ -12,17 +12,17 @@ import java.util.Date;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
-public class Release {
+public class Releas {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long refRelease;
     private Date dateLivraison;
     private Date datePrevision;
     private Date dateReelle;
 
-    @OneToMany(mappedBy = "release",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER )
-    @JsonBackReference
-    private Collection<Ticket> tickets;
+//    @OneToMany(mappedBy = "release",
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true,
+//            fetch = FetchType.EAGER )
+//    @JsonBackReference
+//    private Collection<Ticket> tickets;
 }

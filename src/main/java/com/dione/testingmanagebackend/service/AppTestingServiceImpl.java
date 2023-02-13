@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.Date;
-import java.util.UUID;
 import java.util.stream.Stream;
 
 @Service
@@ -37,7 +36,7 @@ public class AppTestingServiceImpl implements IAppTestingService {
     @Override
     public void initRelease() {
         for (int i = 0; i < 3; i++) {
-            Release release = new Release();
+            Releas release = new Releas();
             release.setDateLivraison(new Date());
             release.setDatePrevision(new Date());
             release.setDateReelle(new Date());
@@ -107,11 +106,11 @@ public class AppTestingServiceImpl implements IAppTestingService {
                    double randomNumber3 = Math.random();
                    EnCours enCours;
                    if (randomNumber3 < 0.33) {
-                       enCours = EnCours.Atraite;
+                       enCours = EnCours.A_TRAITES;
                    } else if (randomNumber3 < 0.67) {
-                       enCours = EnCours.Verification;
+                       enCours = EnCours.VERIFICATION;
                    } else {
-                       enCours = EnCours.Corrigees;
+                       enCours = EnCours.CORRIGEES;
                    }
                    anomalie.setEnCours(enCours);
                    double randomNumber4 = Math.random();
@@ -167,11 +166,17 @@ for (int i=0; i<3;i++) {
             } else if (randomNumber5 < 0.4) {
                 resultat = Resultat.KO;
             } else if (randomNumber5 < 0.6) {
-                resultat = Resultat.Nonteste;
+                resultat = Resultat.Non_Teste;
             } else if (randomNumber5 < 0.8) {
                 resultat = Resultat.Abandonnes;
-            } else {
-                resultat = Resultat.HorsPerimetre;
+            }
+            else if (randomNumber5 < 0.8) {
+                resultat = Resultat.En_Cours;
+            }
+            else if (randomNumber5 < 0.8) {
+                resultat = Resultat.Bloquee;
+            }else {
+                resultat = Resultat.Hors_Perimetre;
             }
             casDeTest.setResultat(resultat);
             //casDeTest.setTicket(tick);

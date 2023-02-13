@@ -5,5 +5,6 @@ public enum Types {
     EVOLUTION,
     INCIDENT,
     RECIT,
-    HORS_RECIT
+    HORS_RECIT,
+    HORS_RELEASE
 }

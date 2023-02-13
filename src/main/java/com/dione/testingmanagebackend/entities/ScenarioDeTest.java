@@ -13,7 +13,6 @@ public class ScenarioDeTest {
     private Long refScenario;
     @Column(length = 300)
     private String scenario;
-
-    @ManyToOne
+    @OneToOne
     private CasDeTest casDeTest;
 }

@@ -3,7 +3,9 @@ package com.dione.testingmanagebackend.enums;
 public enum Resultat {
     KO ,
     OK ,
-    Nonteste,
+    Non_Teste,
     Abandonnes,
-    HorsPerimetre
+    Hors_Perimetre,
+    En_Cours,
+    Bloquee
 }

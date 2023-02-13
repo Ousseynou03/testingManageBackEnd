@@ -21,8 +21,9 @@ public class AppTestingServiceImpl implements IAppTestingService {
     private final CasDeTestRepository casDeTestRepository;
     private final AnomalieRepository anomalieRepository;
     private final TesteurRepository testeurRepository;
+    private final UserRepository userRepository;
 
-    public AppTestingServiceImpl(ReleaseRepository releaseRepository, TicketRepository ticketRepository, ScenarioRepository scenarioDeTestRepository1, CasDeTestRepository casDeTestRepository, AnomalieRepository anomalieRepository, TesteurRepository testeurRepository) {
+    public AppTestingServiceImpl(ReleaseRepository releaseRepository, TicketRepository ticketRepository, ScenarioRepository scenarioDeTestRepository1, CasDeTestRepository casDeTestRepository, AnomalieRepository anomalieRepository, TesteurRepository testeurRepository, UserRepository userRepository) {
         this.releaseRepository = releaseRepository;
         this.ticketRepository = ticketRepository;
         this.scenarioDeTestRepository = scenarioDeTestRepository1;
@@ -30,6 +31,7 @@ public class AppTestingServiceImpl implements IAppTestingService {
         this.casDeTestRepository = casDeTestRepository;
         this.anomalieRepository = anomalieRepository;
         this.testeurRepository = testeurRepository;
+        this.userRepository = userRepository;
     }
 
     //Initialisation des données de releases
@@ -189,6 +191,15 @@ for (int i=0; i<3;i++) {
             testeur.setNom(nomTesteur);
             testeurRepository.save(testeur);
         });
+
+    }
+
+    @Override
+    public void initUser() {
+        User user = new User();
+        user.setName("Coundoul95");
+        user.setPassword("1234");
+        userRepository.save(user);
 
     }
 

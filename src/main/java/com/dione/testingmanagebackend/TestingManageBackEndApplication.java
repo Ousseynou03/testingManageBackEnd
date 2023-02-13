@@ -44,6 +44,7 @@ public class TestingManageBackEndApplication implements CommandLineRunner {
 		appTestingService.initRelease();
 		appTestingService.initTicket();
 		appTestingService.initTesteur();
+		appTestingService.initUser();
 
 	}
 

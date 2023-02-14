@@ -32,7 +32,7 @@ public class ApplicationTestingManageController {
 
     //Méthode de récupértion de tous les releases
     @GetMapping("/allReleases")
-    public List<Release> findAllRelease(){
+    public List<Releas> findAllRelease(){
         return releaseRepository.findAll();
     }
 
@@ -71,7 +71,7 @@ public class ApplicationTestingManageController {
 
     //Méthode d'ajoute d'une release
     @PostMapping("/addRelease")
-    public Release ajoutRelease(@RequestBody Release release){
+    public Releas ajoutRelease(@RequestBody Releas release){
         return releaseRepository.save(release);
     }
 
@@ -108,7 +108,7 @@ public class ApplicationTestingManageController {
 
     //Méthode de récupération d'un release sachant sont ID
     @GetMapping("/release/{id}")
-    public Release findReleaseById(@PathVariable Long id) {
+    public Releas findReleaseById(@PathVariable Long id) {
         return releaseRepository.findById(id).
                 orElseThrow(() -> new RuntimeException("Release introuvable "));
     }
@@ -145,7 +145,7 @@ public class ApplicationTestingManageController {
 
     //Méthode de modification d'un release
     @PutMapping("/updateRelease/{id}")
-    public Release updateRelease(@RequestBody Release release,@PathVariable Long id){
+    public Releas updateRelease(@RequestBody Releas release,@PathVariable Long id){
         release.setRefRelease(id);
         return releaseRepository.save(release);
     }

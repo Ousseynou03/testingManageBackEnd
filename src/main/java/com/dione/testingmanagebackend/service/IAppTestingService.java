@@ -10,6 +10,7 @@ public interface IAppTestingService {
     public void initScenarioDeTest();
     public void initCasDeTest();
     public void initTesteur();
+    public void initUser();
 }
 
 

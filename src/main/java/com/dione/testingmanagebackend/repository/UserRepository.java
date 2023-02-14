@@ -1,11 +1,9 @@
 package com.dione.testingmanagebackend.repository;
 
-import com.dione.testingmanagebackend.entities.Ticket;
+import com.dione.testingmanagebackend.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TicketRepository extends JpaRepository<Ticket, Long> {
-
-
+public interface UserRepository extends JpaRepository<User, Long> {
 }
